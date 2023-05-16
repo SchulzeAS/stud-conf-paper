@@ -1,11 +1,72 @@
-@misc{Havelund_Rosu_2004, 
+@misc{HR4, 
 	title={An Overview of the Runtime Verification Tool JavaPathExplorer}, 
 	volume={24}, url={http://dx.doi.org/10.1023/B:FORM.0000017721.39909.4b}, DOI={10.1023/b:form.0000017721.39909.4b},
 	number={2}, 
 	journal={Formal Methods in System Design}, 
 	publisher={Springer Science and Business Media LLC}, 
-	author={Havelund, Klaus and Roşu, Grigore}, 
+	author={Havelund, Klaus and Rosu, Grigore}, 
 	year={2004}, 
 	month={Mar}, 
 	pages={189–215}, 
 	language={en} } 
+
+@article{HR1,
+	author = {Havelund, Klaus and Rosu, Grigore},
+	year = {2001},
+	month = {06},
+	pages = {},
+	title = {Java PathExplorer - A Runtime Verification Tool}
+}
+
+@misc{WebCorC,
+	howpublished = {\url{https://www.isf.cs.tu-bs.de/WebCorC/#}},
+	title = {WebCorc},
+	note = {Accessed: 16.5.2023}
+}
+
+@misc{jpf-symbc,
+	howpublished = {\url{https://github.com/javapathfinder/jpf-symbc}},
+	title = {Symbolic JPF},
+	note = {Accessed: 16.5.2023}
+}
+@article{ADALID201461,
+	title = {Using SPIN for automated debugging of infinite executions of Java programs},
+	journal = {Journal of Systems and Software},
+	volume = {90},
+	pages = {61-75},
+	year = {2014},
+	issn = {0164-1212},
+	doi = {https://doi.org/10.1016/j.jss.2013.10.056},
+	url = {https://www.sciencedirect.com/science/article/pii/S0164121213002641},
+	author = {Damián Adalid and Alberto Salmerón and María del Mar Gallardo and Pedro Merino},
+	abstract = {This paper presents an approach for the automated debugging of reactive and concurrent Java programs, combining model checking and runtime monitoring. Runtime monitoring is used to transform the Java execution traces into the input for the model checker, the purpose of which is twofold. First, it checks these execution traces against properties written in linear temporal logic (LTL), which represent desirable or undesirable behaviors. Second, it produces several execution traces for a single Java program by generating test inputs and exploring different schedulings in multithreaded programs. As state explosion is the main drawback to model checking, we propose two abstraction approaches to reduce the memory requirements when storing Java states. We also present the formal framework to clarify which kinds of LTL safety and liveness formulas can be correctly analysed with each abstraction for both finite and infinite program executions. A major advantage of our approach comes from the model checker, which stores the trace of each failed execution, allowing the programmer to replay these executions to locate the bugs. Our current implementation, the tool TJT, uses Spin as the model checker and the Java Debug Interface (JDI) for runtime monitoring. TJT is presented as an Eclipse plug-in and it has been successfully applied to debug complex public Java programs.}
+}
+@InProceedings{10.1007/978-3-030-17502-3_9,
+	author="Beyer, Dirk",
+	editor="Beyer, Dirk
+	and Huisman, Marieke
+	and Kordon, Fabrice
+	and Steffen, Bernhard",
+	title="Automatic Verification of C and Java Programs: SV-COMP 2019",
+	booktitle="Tools and Algorithms for the Construction and Analysis of Systems",
+	year="2019",
+	publisher="Springer International Publishing",
+	address="Cham",
+	pages="133--155",
+	abstract="This report describes the 2019 Competition on Software Verification (SV-COMP), the 8{\$}{\$}^{\{}{\backslash}text {\{}th{\}}{\}}{\$}{\$} edition of a series of comparative evaluations of fully automatic software verifiers for C programs, and now also for Java programs. The competition provides a snapshot of the current state of the art in the area, and has a strong focus on replicability of its results. The repository of benchmark verification tasks now supports a new, more flexible format for task definitions (based on YAML), which was a precondition for conveniently benchmarking Java programs in the same controlled competition setting that was successfully applied in the previous years. The competition was based on 10 522 verification tasks for C programs and 368 verification tasks for Java programs. Each verification task consisted of a program and a property (reachability, memory safety, overflows, termination). SV-COMP 2019 had 31 participating verification systems from 14 countries.",
+	isbn="978-3-030-17502-3"
+}
+
+@InProceedings{10.1007/978-3-030-45237-7_21,
+	author="Beyer, Dirk",
+	editor="Biere, Armin
+	and Parker, David",
+	title="Advances in Automatic Software Verification: SV-COMP 2020",
+	booktitle="Tools and Algorithms for the Construction and Analysis of Systems",
+	year="2020",
+	publisher="Springer International Publishing",
+	address="Cham",
+	pages="347--367",
+	abstract="This report describes the 2020 Competition on Software Verification (SV-COMP), the 9{\$}{\$}^{\{}{\backslash}text {\{}th{\}}{\}}{\$}{\$}edition of a series of comparative evaluations of fully automatic software verifiers for C and Java programs. The competition provides a snapshot of the current state of the art in the area, and has a strong focus on replicability of its results. The competition was based on 11 052 verification tasks for C programs and 416 verification tasks for Java programs. Each verification task consisted of a program and a property (reachability, memory safety, overflows, termination). SV-COMP 2020 had 28 participating verification systems from 11 countries.",
+	isbn="978-3-030-45237-7"
+}

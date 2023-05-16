@@ -1,0 +1,80 @@
+\subsection{Testing with KeY}
+\begin{lstlisting}[language = Java , frame = trBL , firstnumber = last , escapeinside={(*@}{@*)}, caption={A simple calculator written in Java for evaluation}]
+public class Calculator {
+
+ // JML specification for the add method
+ //@ requires a >= 0 && b >= 1;
+ //@ ensures \result == a + b;
+ public int add(int a, int b) {
+     return a + b;
+ }
+ // JML specification for the divide method
+ //@ requires b != 0;
+ //@ ensures \result * b == a  && \result >= 0;
+
+ public int divide(int a, int b) {
+     return a / b;
+ }
+}
+
+\end{lstlisting}
+
+The KeY prover will be evaluated on the above code snippet for a rudimentary calculator class written in Java. The code snippet is documented using JML. This allows KeY to prove whether the code achieves the requirements set in the in-code JML.
+
+
+Testing the code snippet with KeY is very straightforward. Upon starting KeY 2.10, a Java file can be loaded. Then, the user is able to select the function, KeY calls them \verb|Contracts|. This \verb|contract| is then evaluated by KeY. The evaluation is done by applying a set of rules to the project to verify a given goal. For the snippet given above KeY allows two seperate contracts to be chosen for each method \verb|add| and \verb|divide|. Verifying the \verb|add| method with KeY gives a quick proof after 108 ms of time. While verifying the \verb|divide| method the process did not finish as the method is incorrectly implemented for its specification. This is due to the integer division used in the program. KeY stops at the line and signalizes the user, that the proof could not be finished due to the statement at the given line. 
+
+\subsection{Testing with JPF}
+\begin{lstlisting}[language = Java , frame = trBL , firstnumber = last , escapeinside={(*@}{@*)}, caption={A simple example for several error sources}]
+public class Racer implements Runnable {
+int d = 42;
+
+public void run () {
+doSomething(1001);
+d = 0;
+}
+
+public static void main (String[] args){
+Racer racer = new Racer();
+Thread t = new Thread(racer);
+t.start();
+
+doSomething(1000);
+int c = 420 / racer.d;
+System.out.println(c);
+}
+
+static void doSomething (int n) {
+try { Thread.sleep(n); } 
+catch (InterruptedException ix) {}
+}
+}
+
+\end{lstlisting}
+
+The example in listing 2 will be used to test JPF against a set of errors that include concurrency issues and arithmetic mistakes. 
+
+Using JPF from the commandline, the user can add a java class as a commandline argument, this allows JPF to check the java code for errors. Without additional configuration, JPF found a division by zero mistake in the code. In order to check the code for other potential mistakes, a configuration file has to be created that contains the desired detector. When using the \verb|PreciseRaceDetector|, JPF finds that there is a race condition for the variable \verb|d|. Other such detectors include the \verb|EndlessLoopDetector|, which is able to find potentially infinite loops in the code. In addition to these core functionalities, there are extensions to JPF such as the \verb|symbolic pathfinder|\citep{jpf-symbc}
+
+\subsection{Java PathExplorer}
+
+Java PathExplorer utilizes dynamic analysis techniques such as symbolic execution, which involves executing a program with symbolic inputs rather than concrete values. This allows JPAX to systematically explore various execution paths that cover different program behaviors. It was developed at NASA Ames Reasearch Center. JPAX is no longer obtainable from the internet, therefore this part only relies on information from the developers paper "Java PathExplorer - A Runtime Verification Tool" \citep{HR1}
+
+When given a piece of Java code, JPAX will use the bytecode generated from the program to observe its behaviour. This way it is able to detect deadlocks and data races. 
+
+\subsection{CorC}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{"Bildschirmfoto von 2023-05-16 15-43-13"}
+	\caption{A simple proof written in WebCorc\citep{WebCorC}}
+	\label{fig:bildschirmfoto-von-2023-05-16-15-43-13}
+\end{figure}
+
+CorC is an editor that allows graphical compostion of visual proofs using building blocks. these building blocks can consist of code statements, compositions of statements and many more. Each block is fitted with pre- and postconditions. 
+Through this enforcement of the \verb|Correctness-by-Construction| (CbC) approach, the incrementally product will be adhering to the conditions set in the invidual code blocks.
+Therefore producing a correct program, provided correct specifications.CorC is available as a website version, as well as a plugin for the java IDE eclipse. 
+
+\subsection[TJT]{Temporal Java Testing\citep{ADALID201461}}
+TJT is a plugin for the eclipse IDE. It combines model checking and runtime monitoring. First the java debug interface is used for runtime monitoring. The data gathered in the first step is then used to produce paths for the model checking. These are also verified against requirements specified beforehand. According to the authors this helps with tests for multithreaded programs. When model checking, TJT stores the failed execution paths for the developer. This enables later retracing of errors that have appeared during the execution. 
+
+

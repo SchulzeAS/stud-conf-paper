@@ -1,0 +1,23 @@
+\subsection{Criteria}
+When using verification frameworks several criteria have to be considered when deciding which one should be used in the production environment.
+\begin{itemize}
+	\item The programming environment chosen is important to consider. This includes the editor the user uses, and technological influences such as multithreading. 
+	\item Different projects pose different requirements to the testing framework, therefore the intended scope of the project and its intended use have to be concerned when choosing a testing framework.
+	\item ease of use
+\end{itemize}
+
+\subsection{JML}
+Because JML is a specification language for java code. This means its main use is not to perform tests, but rather specify how other frameworks should perform their tests. This means it is not a feasible standalone solution. However it is very useful for making clear what the code written has to fulfill. It is very easy to use on its own, as it is written directly into the code as comments.
+\subsection{KeY}
+The KeY checker uses JML for the requirements. Installing KeY is just downloading a jar file and then executing it, so it is easy to use. As it is a standalone application it can be used independently of the users choice of IDE or text editor. The KeY prover is very well suited to verify smaller programs. It gives good insight in the process of mistakes happening and provides a good localisation for what went wrong. However, it does not detect certain mistakes in the code, such as hardcoded divisions by zero.  
+%TODO: CHECK LARGER MODELLS FOR KeY
+\subsection{Java PathExplorer}
+JPaX has not been found available for download. It provides capabilities for finding concurrency errors in multithreaded code. This is not provided by other frameworks like KeY. 
+\subsection{Java PathFinder}
+Java PathFinder is a tool for modelchecking java code. It is easily installed by cloning the github repository and then building it with gradle. Its capabilities for error and exception detection can be extended by different detectors. It is also available as a commandline tool which makes it suited for remote work on machines over ssh. 
+\subsection{CorC}
+CorC is a graphical editor for java code. Due to the nature of graphical editors, larger projects might become unwieldy. The incremental approach to software development forces the user to write correct code and specification at the same time which makes for a less streamlined process, but at the same time it guarantees code adhering to specification. Due to only being available as either a web application or a plugin for eclipse, environments for CorC are limited and might not be suitable for everyone. 
+\subsection{TJT}
+TJT is only available as a plugin for eclipse. The documentation from the developers is very limited and it only seems to be available for Windows 7. According to the authors it features a large amount of features combining runtime verification and model checking. This makes it a very powerful tool for large and complex multithreaded projects. 
+
+ 

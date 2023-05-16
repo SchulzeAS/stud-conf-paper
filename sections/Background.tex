@@ -10,7 +10,8 @@ By exploring these different paths, JPF is able to detect possible defects, such
 \subsection{JavaPathExplorer}
  The Java PathExplorer (JPAX) can monitor the execution of a Java program and check that it conforms with a set of user provided properties
  formulated in temporal logic. JPAX can in addition analyze the program for concurrency errors such as deadlocks
- and data races.\citep{Havelund_Rosu_2004}
+ and data races.\citep{HR4}
 \subsection{KeY prover}
 The KeY prover (KeY) is a formal verification tool for Java programs. It allows developers to specify the behavior of Java programs using JML, and then uses automated techniques to verify that the program satisfies its specification.
-	
+\subsection[TJT]{Temporal java testing}
+TJT is a plugin for the IDE Eclipse that is developed at the university of Malaga. It uses the \verb|simple promela interpreter| (SPIN) to check java code.

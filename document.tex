@@ -1,7 +1,9 @@
 \documentclass[sigconf]{acmart}	
 \usepackage{graphicx} % Required for inserting images
 \usepackage{import}
-
+\usepackage{algorithm2e}
+\usepackage{listings, xcolor}
+\usepackage{caption}
 \title{A survey on testing approaches for writing correct java code}
 \author{Adrian Schulze }
 \date{May 2023}
@@ -15,16 +17,14 @@
 	 \section{Abstract}\import{sections/}{Abstract}
 	 \section{Introduction}\import{sections/}{Introduction}
 	 \section{Background}\import{sections/}{Background}
-     \section{The contribution (body)}
-	 \section{Evaluation}
-	 \section{Discussion (if appropriate)}
-	 \section{Related work}
-	 \section{Conclusion and Future work}
+     \section{Features of the frameworks}\import{sections/}{Contribution}
+	 \section{Evaluation}\import{sections/}{Evaluation}
+	 \section{Discussion}\import{sections/}{Discussion}
+	 \section{Related work} \import{sections/}{RelatedWork}
+	 \section{Conclusion and Future work} \import{section/}{Conclusion}
 	 \section{References}
-	 \section{Train of thought (will be removed)}
-	 	tools may be put into different categories (JML = Spez) etc. \\
-	 	KeY is a prover for JML stuff
-	 	JML is specification
+	 
 \bibliography{references}{}
+\bibliographystyle{plain}
 
 \end{document}
