@@ -1,7 +1,56 @@
-todo: better formulation
-\begin{itemize}
-	\item TJT looks a little sketchy as it is not really available to users and not really talked about apart from the developers
-	\item JPaX is not available, comparison here is one for legacy purposes, in case someone still uses it and wonders if they should switch. 
-	\item CorC is well suited for smaller units of organisation but might be a little overwhelmed for larger projects due to the graphical nature. 
-	\item JML should always be used, because it provides towards documentation and structured specification. 
-\end{itemize}
+
+TJT is a tool only available for Windows 7, hence it is not usable on todays most used operating systems, such as MacOS, Windows 10 and most linux distributions. Therefore a comparison to other tools listed here is only possible on a theoretical basis.
+ 
+This also applies to JPaX, the original introduction from the year 2001 does not mention a way to download and there is no website to download it from. 
+These two will be treated as a reference for comparison in case they are still in production and there is a need for replacement.
+
+CorC is well suited for smaller units of organisation but might be a little overwhelmed for larger projects due to the graphical nature. This is due to the connections and extra blocks caused by the CbC process which tend to obfuscate the control flow of programs, when compared to text-based programming. However it makes it harder for the user to write incorrect code by making the user think first.
+
+As oppose to the other approaches, JML is not a tool, but rather an intermediate requirement for tools to work. As an extension to its use in software verfication and testing,  JML can be used to write standardized documentation for users of the created product.
+ 
+KeY is using JML as a specification language, this allows for easy use, as many projects are using JML for documentation and specification. When the number of functions to check grows, KeY gets harder to use, as the output gets less clear with a growing number of functions. 
+\paragraph{KeY Prover}
+Formal Verification Power: KeY Prover offers powerful formal verification capabilities, allowing for the rigorous analysis of Java programs. It supports the verification of functional correctness, safety properties, and security properties, providing high assurance of software correctness.
+
+Java Language Support: KeY Prover is tailored for Java programs, making it well-suited for analyzing and verifying Java code. It supports the Java language features, including object-oriented programming, exceptions, and interfaces.
+
+Interactive Proof Development: KeY Prover provides an interactive proof development environment, allowing users to guide and interact with the verification process. This facilitates understanding, customization, and refinement of verification proofs.
+
+Soundness and Completeness: KeY Prover is based on sound formal verification techniques, providing guarantees that any reported proof or counterexample is correct. It strives to achieve completeness, aiming to find all errors if given enough time and resources.
+
+Cons of KeY Prover:
+
+Complexity and Learning Curve: KeY Prover's usage requires familiarity with formal verification concepts, logic, and theorem proving. The tool has a learning curve, and users may need to invest time and effort to become proficient in its usage.
+
+Scalability: The scalability of KeY Prover can be a challenge for large-scale programs with complex control flow and extensive state spaces. The verification process may become resource-intensive and time-consuming, potentially limiting its applicability for highly intricate systems.
+
+Limited Language Support: KeY Prover is primarily designed for Java, and its support for other programming languages may be limited. If verification is required for non-Java code, alternative tools or approaches may be necessary.
+
+Tool Maturity and Support: KeY Prover has a dedicated user community but may have limitations in terms of tool maturity, availability of documentation, and support compared to more widely adopted verification tools.
+
+It is essential to carefully consider these pros and cons in the context of project requirements, complexity, and available resources when evaluating the suitability of KeY Prover or any other formal verification tool.
+\paragraph{Java Pathfinder}
+  
+Java Pathfinder (JPF) has several advantages and disadvantages that are worth considering:
+
+Pros of JPF:
+
+Model Checking Power: JPF offers powerful model checking capabilities, allowing exhaustive exploration of all possible execution paths, enabling the detection of subtle errors that may go unnoticed in traditional testing approaches.
+
+Java Language Support: JPF is specifically designed for Java programs, making it well-suited for analyzing and verifying Java applications. It can handle complex Java-specific features such as thread synchronization, exceptions, and object-oriented programming constructs.
+
+Customizability: JPF provides a high degree of customizability and extensibility. It supports the integration of user-defined properties, assertions, and specifications, enabling tailored verification for specific requirements.
+
+Open Source Community: Being an open-source tool, JPF benefits from an active community of users and contributors. This leads to ongoing development, bug fixes, and availability of extensions, plugins, and documentation.
+
+Cons of JPF:
+
+Scalability: JPF's exhaustive exploration of execution paths can be computationally expensive, making it less efficient for large-scale programs with extensive state spaces. The analysis can become impractical or time-consuming for complex systems.
+
+False Positives and False Negatives: Model checking, including JPF, may produce false positives (incorrectly reporting errors) or false negatives (missing actual errors). Careful analysis and fine-tuning of the model and properties are required to minimize such occurrences.
+
+Learning Curve: JPF has a learning curve associated with its usage, as it requires familiarity with model checking concepts, configuration, and the JPF framework itself. In order to use the software productively, users might need some time to get used to it. 
+
+Limited Language Support: While JPF is specialized for Java, it may not be suitable for verifying programs written in other languages. If verification is required for non-Java code, alternative model checking tools or approaches may be necessary.
+
+It's important to assess these pros and cons in the context of specific project requirements, complexity, and resource constraints before deciding to use JPF or any other verification tool.

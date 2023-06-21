@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html class=" js " lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Getting Started with Java Pathfinder - Hans-Jörg Schnedlitz</title>
+<meta name="description" content="Java Pathfinder (JPF in short) is a model checking tool for Java programs. Model checking is an approach to formal verification and can be used quite nicely to supplement traditional testing. Embedded in Academia has a nice blog post on that topic.">
+
+
+  <meta name="author" content="Hans-Jörg Schnedlitz">
+  
+  <meta property="article:author" content="Hans-Jörg Schnedlitz">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Hans-Jörg Schnedlitz">
+<meta property="og:title" content="Getting Started with Java Pathfinder">
+<meta property="og:url" content="https://hschne.at/2017/05/29/getting-started-with-java-pathfinder.html">
+
+
+  <meta property="og:description" content="Java Pathfinder (JPF in short) is a model checking tool for Java programs. Model checking is an approach to formal verification and can be used quite nicely to supplement traditional testing. Embedded in Academia has a nice blog post on that topic.">
+
+
+
+  <meta property="og:image" content="https://hschne.at/assets/images/default-header.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2017-05-29T16:35:21+00:00">
+
+
+
+
+
+
+<link rel="canonical" href="https://hschne.at/2017/05/29/getting-started-with-java-pathfinder.html">
+
+
+
+
+<script async="" src="Getting%20Started%20with%20Java%20Pathfinder%20-%20Hans-J%C3%B6rg%20Schnedlitz-Dateien/count.js"></script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Hans-Jörg Schnedlitz",
+      "url": "https://hschne.at/",
+      "sameAs": ["https://twitter.com/hschnedlitz","https://github.com/hschne","https://www.linkedin.com/in/hschne","https://www.xing.com/HansJoerg_Schnedlitz"]
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="https://www.hschne.at/feed.xml" type="application/atom+xml" rel="alternate" title="Hans-Jörg Schnedlitz Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="Getting%20Started%20with%20Java%20Pathfinder%20-%20Hans-J%C3%B6rg%20Schnedlitz-Dateien/main.css">
+<link rel="stylesheet" href="Getting%20Started%20with%20Java%20Pathfinder%20-%20Hans-J%C3%B6rg%20Schnedlitz-Dateien/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    
+
+<script>
+  (function() {
+    window.counter = "https://hschne.goatcounter.com/count";
+
+    var script = document.createElement("script");
+    script.async = 1;
+    script.src = "//gc.zgo.at/count.js";
+    var ins = document.getElementsByTagName("script")[0];
+    ins.parentNode.insertBefore(script, ins);
+  })();
+</script>
+
+  <style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><script src="Getting%20Started%20with%20Java%20Pathfinder%20-%20Hans-J%C3%B6rg%20Schnedlitz-Dateien/prompt.js"></script></head>
+
+  <body class="layout--single" data-new-gr-c-s-check-loaded="8.906.0" data-gr-ext-installed="">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="https://www.hschne.at/">
+          Hans-Jörg Schnedlitz
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://www.hschne.at/archive/">Archive</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.hschne.at/about/">About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button" count="0">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar">
+  
+
+
+<div itemscope="" itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="https://hschne.at/">
+        <img src="Getting%20Started%20with%20Java%20Pathfinder%20-%20Hans-J%C3%B6rg%20Schnedlitz-Dateien/bio-photo.jpg" alt="Hans-Jörg Schnedlitz" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://hschne.at/" itemprop="url">Hans-Jörg Schnedlitz</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Software Engineer from Austria. Employed at Meister,  studying at TU Wien. I like programming.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope="" itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Vienna</span>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/hschnedlitz" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/hschne" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span>
+          </a>
+        </li>
+      
+
+      
+        <li>
+          <a href="https://www.xing.com/profile/HansJoerg_Schnedlitz" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-xing-square" aria-hidden="true"></i><span class="label">XING</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/hschne" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+            <i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope="" itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Getting Started with Java Pathfinder">
+    <meta itemprop="description" content="Java Pathfinder (JPF in short) is a model checking tool for Java programs. Model checking is an approach to formal verification and can be used quite nicely to supplement traditional testing. Embedded in Academia has a nice blog post on that topic.">
+    <meta itemprop="datePublished" content="2017-05-29T16:35:21+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="https://hschne.at/2017/05/29/getting-started-with-java-pathfinder.html" class="u-url" itemprop="url">Getting Started with Java Pathfinder
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2017-05-29T16:35:21+00:00">May 29, 2017</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+        <p>Java Pathfinder (JPF in short) is a model checking tool for 
+Java programs. Model checking is an approach to formal verification and 
+can be used quite nicely to supplement traditional testing. <a href="https://blog.regehr.org/archives/742">Embedded in Academia</a> has a nice blog post on that topic.</p>
+
+<p>Since you are here, I’ll assume you already know what JPF does. If not: An introduction to JPF can be read on the <a href="https://babelfish.arc.nasa.gov/trac/jpf/wiki/intro/start">JPF Wiki</a>.
+ If you do have some experience in software testing but have never heard
+ about model checking and/or JPF I urge you to read the resources I 
+linked to. Formal verification techniques can be a really nice addition 
+to testing and JPF is a nice tool to have - especially since it is still
+ under active development.</p>
+
+<p>For the purpose of this short tutorial I’ll be using <strong>Ubuntu 16.04</strong> and <strong>IntellJ Idea</strong>. There is a <a href="https://bluegulf.wordpress.com/2011/04/20/tutorial-using-java-pathfinder-together-with-junit-in-eclipse-environment-setup/">good tutorial</a> for setting up JPF using Eclipse, so if you prefer Eclipse you might want to have a look at that.</p>
+
+<h2 id="getting-jpf">Getting JPF<a class="header-link" href="#getting-jpf" title="Permalink"><span class="sr-only">Permalink</span><i class="fas fa-link"></i></a></h2>
+
+<p>I recommend you download the JPF source and build it yourself 
+(simply, you know, because that’s what worked for me). The only part of 
+JPF you really need right now is <code class="language-plaintext highlighter-rouge">jpf-core</code>. Change to the directory where you want your JPF installation to reside (in my case <code class="language-plaintext highlighter-rouge">~/jpf</code>) and download the source code using mercurial. Then move to the source directory and build <code class="language-plaintext highlighter-rouge">jpf-core</code> using Ant.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> ~/jpf
+hg clone http://babelfish.arc.nasa.gov/hg/jpf/jpf-core
+<span class="nb">cd</span> ~/jpf/jpf-core
+ant build</code></pre></figure>
+
+<h2 id="configuring-jpf">Configuring JPF<a class="header-link" href="#configuring-jpf" title="Permalink"><span class="sr-only">Permalink</span><i class="fas fa-link"></i></a></h2>
+
+<p>In order to use JPF you must create the <code class="language-plaintext highlighter-rouge">site.properties</code> file. This file basically tells JPF which modules it should load. More information can be found on the <a href="https://babelfish.arc.nasa.gov/trac/jpf/wiki/install/site-properties">JPFWiki</a>.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">mkdir</span> ~/.jpf
+<span class="nb">cd</span> ~/.jpf <span class="o">&amp;&amp;</span> <span class="nb">touch </span>site.properties</code></pre></figure>
+
+<p>The <code class="language-plaintext highlighter-rouge">site.properties</code> below is a minimal viable configuration file. Usually you would specify the path to extensions such as <code class="language-plaintext highlighter-rouge">jpf-awt</code> here, but that is not really of importance in the context of this tutorial.</p>
+
+<figure class="highlight"><pre><code class="language-properties" data-lang="properties"><span class="c"># JPF site configuration
+</span><span class="py">jpf.home</span> <span class="p">=</span> <span class="s">${user.home}/jpf</span>
+<span class="py">jpf-core</span> <span class="p">=</span>  <span class="s">${jpf.home}/jpf-core</span></code></pre></figure>
+
+<h2 id="creating-a-jpf-project">Creating a JPF Project<a class="header-link" href="#creating-a-jpf-project" title="Permalink"><span class="sr-only">Permalink</span><i class="fas fa-link"></i></a></h2>
+
+<p>There are a couple of ways to use JPF in your projects. You can</p>
+
+<ul>
+  <li>run JPF from the command line.</li>
+  <li>run JPF using JUnit.</li>
+  <li>run JPF from another Java application.</li>
+</ul>
+
+<p>I’ll show you how to verify a simple application, namely the <code class="language-plaintext highlighter-rouge">Racer.java</code> example from the JPF wiki using the command line. Using the other two approaches is only slightly more complicated.</p>
+
+<p>Create a new Java Project. Create the file <code class="language-plaintext highlighter-rouge">Racer.java</code> and copy the following content into it.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Racer</span> <span class="kd">implements</span> <span class="nc">Runnable</span> <span class="o">{</span>
+     <span class="kt">int</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">42</span><span class="o">;</span>
+
+     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span> <span class="o">()</span> <span class="o">{</span>
+          <span class="n">doSomething</span><span class="o">(</span><span class="mi">1001</span><span class="o">);</span>
+          <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+     <span class="o">}</span>
+
+     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+          <span class="nc">Racer</span> <span class="n">racer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Racer</span><span class="o">();</span>
+          <span class="nc">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Thread</span><span class="o">(</span><span class="n">racer</span><span class="o">);</span>
+          <span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+          <span class="n">doSomething</span><span class="o">(</span><span class="mi">1000</span><span class="o">);</span>
+          <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">420</span> <span class="o">/</span> <span class="n">racer</span><span class="o">.</span><span class="na">d</span><span class="o">;</span>
+          <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">);</span>
+     <span class="o">}</span>
+     
+     <span class="kd">static</span> <span class="kt">void</span> <span class="nf">doSomething</span> <span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">try</span> <span class="o">{</span> <span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="n">n</span><span class="o">);</span> <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InterruptedException</span> <span class="n">ix</span><span class="o">)</span> <span class="o">{}</span>
+     <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>If you are using IntelliJ Idea, your project should pretty much look like this now.</p>
+
+<p><img src="Getting%20Started%20with%20Java%20Pathfinder%20-%20Hans-J%C3%B6rg%20Schnedlitz-Dateien/project-setup.png" alt="Project" class="align-center"></p>
+
+<p>Open a terminal and navigate to your project folder. You should 
+already be able to run JPF and detect a null pointer exception. 
+Supplement ```jpf`` with whatever folder you chose for your JPF 
+installation.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>myproject
+~/jpf/jpf-core/bin/jpf Racer</code></pre></figure>
+
+<p>Add an additional <code class="language-plaintext highlighter-rouge">.jpf</code> file to specify additional properties for your system under test, in this case <code class="language-plaintext highlighter-rouge">Racer.java</code>.
+ Say, you want to properly detect race conditions. You can do so by 
+specifying a specialized listener for this specific SuT, namely <code class="language-plaintext highlighter-rouge">PreciseRaceDetector</code>. Create a file <code class="language-plaintext highlighter-rouge">racer.jpf</code> in your project root and add the following lines to it.</p>
+
+<figure class="highlight"><pre><code class="language-properties" data-lang="properties"><span class="py">target</span><span class="p">=</span><span class="s">Racer</span>
+<span class="py">listener</span><span class="p">=</span><span class="s">gov.nasa.jpf.listener.PreciseRaceDetector</span></code></pre></figure>
+
+<p>Run JPF again to get some more information about what is wrong with 
+the SuT. You should be notified of the fact that there is a race 
+condition involving the variable <code class="language-plaintext highlighter-rouge">d</code>. Big surprise, I know.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/jpf/jpf-core/bin/jpf racer.jpf</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">...
+<span class="o">======================================================</span> error 1
+gov.nasa.jpf.listener.PreciseRaceDetector
+race <span class="k">for </span>field Racer@15b.d
+  main at Racer.main<span class="o">(</span>Racer.java:35<span class="o">)</span>
+		<span class="s2">"int c = 420 / racer.d;               // (4)"</span>  READ:  getfield Racer.d
+  Thread-1 at Racer.run<span class="o">(</span>Racer.java:26<span class="o">)</span>
+		<span class="s2">"d = 0;                               // (2)"</span>  WRITE: putfield Racer.d</code></pre></figure>
+
+<p>There is tons more to be written about JPF, and since I feel existing
+ documentation is lacking I hope I get around to it - soonish. I hope to
+ write a more detailed tutorial about how you can bootstrap and verify 
+your own applications. Good luck and happy playing around with JPF.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2017-05-29T16:35:21+00:00">May 29, 2017</time></p>
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="https://www.hschne.at/2017/02/22/installing-reactive-banana-on-ubuntu-16-04.html" class="pagination--pager" title="Installing Reactive Banana on Ubuntu 16.04
+">Previous</a>
+    
+    
+      <a href="https://www.hschne.at/2017/06/29/public-speaking.html" class="pagination--pager" title="Some DOs and DONTs of Public Speaking
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+
+    
+      <li><a href="https://www.hschne.at/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">© 2021 Hans-Jörg Schnedlitz. Powered by <a href="https://jekyllrb.com/" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="Getting%20Started%20with%20Java%20Pathfinder%20-%20Hans-J%C3%B6rg%20Schnedlitz-Dateien/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

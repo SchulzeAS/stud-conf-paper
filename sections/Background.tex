@@ -1,17 +1,26 @@
-\subsection{Java Modeling Language}
+
+\paragraph{Software verification}
+Software verification can be divided into two categories, static and dynamic. Static verification in software engineering is the examination of software artifacts, like source code, design documents, without executing the code. It aims to identify defects and issues early in the development process. Techniques include static code analysis, formal methods, code reviews, and documentation review. By analyzing the software's structure and syntax, static verification helps ensure quality, maintainability, and adherence to coding standards. It minimizes costs by catching errors before deployment and improves software reliability by eliminating potential issues at an early stage.
+Dynamic verification in software engineering refers to the process of evaluating software by executing the code and observing its behavior. It involves testing and validating the software against expected outcomes and requirements. Dynamic verification techniques include various testing approaches, such as unit testing, integration testing, system testing, and acceptance testing. These tests exercise the software in different scenarios and environments to uncover bugs, errors, or performance issues. By dynamically analyzing the software's behavior during runtime, dynamic verification ensures its functionality, reliability, and compliance with desired specifications. It plays a critical role in identifying defects and validating the software's correctness.
+\paragraph{Model Checking}
+Model checking is a formal verification technique in software engineering. It explores all possible paths of execution and checks whether predefined properties hold. Through techniques such as symbolic algorithms it detects errors in the examined code. These include race conditions, deadlocks and other breaches of specified intended behaviour.  
+\paragraph{Correctness by Construction}
+Correctness by Construction (CbC) refers to an approach to software engineering. It enforces the production of correct code using Hoare triples \cite{Runge2019}. Hoare triples are the central concept of Hoare calculus \cite{Hoare1969}. They have the form $\{P\} S \{Q\}$, where P is the precondition, Q is the postcondition and S is a program segment. This allows for modeling the execution of S, and checking whether P and Q hold. In CbC, this is used to pre- and postfix every code segment with conditions to make sure that the code performs up to specification.
+\paragraph{Java Modeling Language}\citep{JML}
 JML (Java Modeling Language) is a specification language for Java programs. It allows developers to write formal specifications for Java classes and methods, which can be used to verify the correctness of software through automated testing or formal verification techniques.
 JML provides a syntax for writing preconditions, postconditions, and invariants that describe the expected behavior of Java code. Preconditions specify the conditions that must hold before a method is called, while postconditions specify the conditions that must hold after a method completes. Invariants specify the conditions that must hold throughout the execution of a class.
-JML annotations can be used to specify the formal specifications of Java classes and methods. These annotations can be used by automated testing tools or formal verification tools to check that a program conforms to its specifications. JML also supports a range of advanced features, including support for object invariants, quantifiers, and model fields.
-\subsection{CorC}
+JML annotations can be used to specify the formal specifications of Java classes and methods. These annotations can be used by automated testing tools or formal verification tools to check that a program conforms to its specifications. JML also supports a range of advanced features, including support for object invariants, quantifiers, and model fields. Object invariants allow the user to specify restrictions for classes, just like the requires statement does for functions. Quantifiers refer to the existence and universal quantifiers known from boolean logic. They allow the user to specify conditions for arrays or other constructs involving multiple elements. 
+
+\paragraph{CorC}
 CorC is a graphical IDE for developing correct software by using the CbC process (correctness by construction). 
-\subsection{JavaPathFinder}
+\paragraph{JavaPathFinder}
 JPF (JavaPathFinder) is a model checker for Java code. Model checkers are a class of testing tools that check all possible paths of execution for a given Java program. 
 By exploring these different paths, JPF is able to detect possible defects, such as deadlocks, race conditions, assertion violations or uncaught exceptions
-\subsection{JavaPathExplorer}
+\paragraph{JavaPathExplorer}
  The Java PathExplorer (JPAX) can monitor the execution of a Java program and check that it conforms with a set of user provided properties
  formulated in temporal logic. JPAX can in addition analyze the program for concurrency errors such as deadlocks
  and data races.\citep{HR4}
-\subsection{KeY prover}
+\paragraph{KeY prover}
 The KeY prover (KeY) is a formal verification tool for Java programs. It allows developers to specify the behavior of Java programs using JML, and then uses automated techniques to verify that the program satisfies its specification.
-\subsection[TJT]{Temporal java testing}
+\paragraph[TJT]{Temporal java testing}
 TJT is a plugin for the IDE Eclipse that is developed at the university of Malaga. It uses the \verb|simple promela interpreter| (SPIN) to check java code.
